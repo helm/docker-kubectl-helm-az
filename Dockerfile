@@ -13,6 +13,9 @@ RUN apk add -U python3 bash ca-certificates && \
     apk add --virtual=build gcc python3-dev musl-dev libffi-dev openssl-dev make  && \
     pip3 install --upgrade requests && \
     pip3 install azure-cli==${AZ} && \
-    ln -s /usr/bin/python3 /usr/bin/python
+    ln -s /usr/bin/python3 /usr/bin/python 
+    
+RUN apk add --no-cache git
+
 COPY --from=0 /usr/local/bin/helm /usr/local/bin/helm
 COPY --from=1 /usr/local/bin/kubectl /usr/local/bin/kubectl
