@@ -7,7 +7,8 @@ RUN apk add --update -t deps \
       ca-certificates \
       curl \
       git \
-      openssl
+      openssl \
+      maven
 
 RUN curl -Ls https://storage.googleapis.com/kubernetes-release/release/${KUBE_LATEST_VERSION}/bin/linux/amd64/kubectl \
       -o /usr/local/bin/kubectl \
