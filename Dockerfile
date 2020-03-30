@@ -7,8 +7,7 @@ RUN apk add --update -t deps \
       ca-certificates \
       curl \
       git \
-      openssl \
-      maven
+      openssl
 
 RUN curl -Ls https://storage.googleapis.com/kubernetes-release/release/${KUBE_LATEST_VERSION}/bin/linux/amd64/kubectl \
       -o /usr/local/bin/kubectl \
@@ -25,6 +24,9 @@ RUN curl -Ls https://github.com/adesso-as-a-service/helm-local-chart-version/rel
  && cd /usr/local/bin \
  && tar -zxf /tmp/helm-local-chart-version-${HELM_PLUGIN_VERSION}-linux-amd64.tar.gz local-chart-version \
  && rm /tmp/helm-local-chart-version-${HELM_PLUGIN_VERSION}-linux-amd64.tar.gz
+
+RUN apk add --update \
+      maven
 
 RUN apk del --purge deps \
  && rm /var/cache/apk/*
