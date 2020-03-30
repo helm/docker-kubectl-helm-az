@@ -26,6 +26,7 @@ RUN curl -Ls https://github.com/adesso-as-a-service/helm-local-chart-version/rel
  && rm /tmp/helm-local-chart-version-${HELM_PLUGIN_VERSION}-linux-amd64.tar.gz
 
 RUN apk add --update \
+      openjdk11-jdk \
       maven
 
 RUN apk del --purge deps \
